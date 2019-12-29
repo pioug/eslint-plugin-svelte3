@@ -14,6 +14,20 @@
 		"endColumn": 10
 	},
 	{
+		"ruleId": "no-unused-vars",
+		"line": 6,
+		"column": -32,
+		"endLine": 6,
+		"endColumn": -29
+	},
+	{
+		"ruleId": "prefer-const",
+		"line": 6,
+		"column": -15,
+		"endLine": 6,
+		"endColumn": -11
+	},
+	{
 		"ruleId": "missing-declaration",
 		"line": 9,
 		"column": 14,

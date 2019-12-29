@@ -5,7 +5,9 @@ export const new_block = () => ({ transformed_code: '', line_offsets: null, tran
 
 // get translation info and include the processed scripts in this block's transformed_code
 export const get_translation = (text, block, node, options = {}) => {
-	block.transformed_code += '\n';
+	if (node.type !== 'Program') {
+		block.transformed_code += '\n';
+	}
 	const translation = { options, unoffsets: get_offsets(block.transformed_code) };
 	translation.range = [node.start, node.end];
 	const { dedented, offsets } = dedent_code(text.slice(node.start, node.end));
@@ -16,5 +18,7 @@ export const get_translation = (text, block, node, options = {}) => {
 	for (let i = translation.unoffsets.lines; i <= translation.end; i++) {
 		block.translations.set(i, translation);
 	}
-	block.transformed_code += '\n';
+	if (node.type !== 'Program') {
+		block.transformed_code += '\n';
+	}
 };
